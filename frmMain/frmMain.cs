@@ -550,7 +550,7 @@ namespace wyUpdate
                 customProxyDomain = commands["proxyd"];
 
                 // only allow silent uninstalls 
-                if (uninstalling && commands["s"] != null)
+                if (commands["s"] != null) // if (uninstalling && commands["s"] != null)
                 {
                     isSilent = true;
 
