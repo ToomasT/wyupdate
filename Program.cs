@@ -14,7 +14,7 @@ namespace wyUpdate
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static int Main(string[] args)
+        internal static int Main(string[] args)
         {
             Application.EnableVisualStyles();
 

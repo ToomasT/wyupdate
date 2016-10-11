@@ -143,6 +143,7 @@
     <Compile Include="Shortcuts\ShellLinkNative.cs" />
     <Compile Include="Shortcuts\ShellShortcut.cs" />
     <Compile Include="Shortcuts\ShortcutInfo.cs" />
+    <Compile Include="Stub.cs" />
     <Compile Include="SystemFolders.cs" />
     <Compile Include="SystemMenu.cs" />
     <Compile Include="UpdateDetails\CPUVersion.cs" />
