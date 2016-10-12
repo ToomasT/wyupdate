@@ -102,7 +102,12 @@ namespace wyUpdate
                 }
             }
 
-            // Show update info page (or just start downloading & installing)
+            Next();
+        }
+
+        private void Next()
+        {
+// Show update info page (or just start downloading & installing)
             if (SkipUpdateInfo)
             {
                 // check if elevation is needed
@@ -140,9 +145,16 @@ namespace wyUpdate
                 // set the autoupdate filename
                 autoUpdateStateFile = Path.Combine(tempDirectory, "autoupdate");
             }
-
-            //download the client server file and see if the client is new enough
-            BeginSelfUpdateDownload(update.ClientServerSites, 0);
+            if (SkipSelf)
+            {
+                Next();
+            }
+            else
+            {
+                //download the client server file and see if the client is new enough
+                BeginSelfUpdateDownload(update.ClientServerSites, 0);
+            }
+            
         }
 
         //returns True if an update is necessary, otherwise false

@@ -88,6 +88,7 @@ namespace wyUpdate
                 files = new List<FileInfo>(new DirectoryInfo(ProgramDirectory).GetFiles("*.exe", SearchOption.AllDirectories));
 
                 RemoveSelfFromProcesses(files);
+                RemoveVshostProcesses(files);
 
                 //check for (and delete) a newer client if it exists
                 DeleteClientInPath(ProgramDirectory, Path.Combine(TempDirectory, "base"));
@@ -167,6 +168,18 @@ namespace wyUpdate
                 if (ProcessIsSelf(files[i].FullName))
                 {
                     // remove self from the list of processes
+                    files.RemoveAt(i);
+                    return;
+                }
+            }
+        }
+
+        static void RemoveVshostProcesses(List<FileInfo> files)
+        {
+            for (int i = 0; i < files.Count; i++)
+            {
+                if (files[i].FullName.Contains("vshost"))
+                {                    
                     files.RemoveAt(i);
                     return;
                 }

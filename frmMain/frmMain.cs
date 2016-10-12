@@ -416,7 +416,7 @@ namespace wyUpdate
             }
         }
 
-
+        private bool SkipSelf { get; set; }
         void ProcessArguments(Arguments commands)
         {
             if (commands["supdf"] != null)
@@ -548,9 +548,12 @@ namespace wyUpdate
                 customProxyUser = commands["proxyu"];
                 customProxyPassword = commands["proxyp"];
                 customProxyDomain = commands["proxyd"];
-
+                if (commands["skipself"] != null)
+                {
+                    SkipSelf = true;
+                }
                 // only allow silent uninstalls 
-                if (commands["s"] != null) // if (uninstalling && commands["s"] != null)
+                    if (commands["s"] != null) // if (uninstalling && commands["s"] != null)
                 {
                     isSilent = true;
 

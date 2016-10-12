@@ -116,6 +116,9 @@
     <Compile Include="frmMain\frmMain.UserElevation.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmMain\frmMainSkip.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmProcesses.cs">
       <SubType>Form</SubType>
     </Compile>
