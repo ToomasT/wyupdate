@@ -574,8 +574,9 @@ namespace wyUpdate
                     var guid = commands["guid"];
                     var installedVersion = commands["installedVersion"];
                     var serverSite = commands["serverSite"];
+                    var selfUpdateSite = commands["selfUpdateSite"];
 
-                    update = new MemoryClientFile(companyName,productName,guid,installedVersion,serverSite);                    
+                    update = new MemoryClientFile(companyName,productName,guid,installedVersion,serverSite, selfUpdateSite);                    
 
                     
                 }

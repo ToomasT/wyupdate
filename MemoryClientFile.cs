@@ -11,7 +11,7 @@ namespace wyUpdate.Common
 {
     public class MemoryClientFile : ClientFileBase
     {
-        public MemoryClientFile(string companyName, string productName, string guid, string installedVersion, string serverSite)
+        public MemoryClientFile(string companyName, string productName, string guid, string installedVersion, string serverSite, string selfUpdateSite)
         {
             // Oy
             CompanyName = companyName;
@@ -25,7 +25,7 @@ namespace wyUpdate.Common
             // http://dl.edonics.com/FVRO/Sander.wys
             AddUniqueString(serverSite, ServerFileSites);
 
-            AddUniqueString("http://dl.edonics.com/selfupdate.wys", ClientServerSites);
+            AddUniqueString(selfUpdateSite, ClientServerSites);
             CloseOnSuccess = true;
             
 
