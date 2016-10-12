@@ -569,7 +569,7 @@ namespace wyUpdate
 
                     installUpdate.Rollback += ChangeRollback;
                     installUpdate.ProgressChanged += ShowProgress;
-                    installUpdate.RunUpdateClientDataFile();
+                    installUpdate.RunUpdateClientDataFile(SkipClient);
                     break;
                 case UpdateOn.DeletingTemp:
                     SetStepStatus(3, clientLang.TempFiles);

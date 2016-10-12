@@ -417,6 +417,7 @@ namespace wyUpdate
         }
 
         private bool SkipSelf { get; set; }
+        private bool SkipClient { get; set; }
         void ProcessArguments(Arguments commands)
         {
             if (commands["supdf"] != null)
@@ -548,6 +549,10 @@ namespace wyUpdate
                 customProxyUser = commands["proxyu"];
                 customProxyPassword = commands["proxyp"];
                 customProxyDomain = commands["proxyd"];
+                if (commands["skipclient"] != null)
+                {
+                    SkipClient = true;
+                }
                 if (commands["skipself"] != null)
                 {
                     SkipSelf = true;

@@ -8,15 +8,27 @@ namespace wyUpdate
 {
     partial class InstallUpdate
     {
-        public void RunUpdateClientDataFile()
+        public void RunUpdateClientDataFile(bool skip)
         {
-            bw.DoWork += bw_DoWorkClientData;
+            if (skip)
+            {
+                bw.DoWork += bw_SkipWorkClientData;
+            }
+            else
+            {
+                bw.DoWork += bw_DoWorkClientData;
+            }
+            
             bw.ProgressChanged += bw_ProgressChanged;
             bw.RunWorkerCompleted += bw_RunWorkerCompletedClientData;
 
             bw.RunWorkerAsync();
         }
 
+        void bw_SkipWorkClientData(object sender, DoWorkEventArgs e)
+        {
+            bw.ReportProgress(0, new object[] { -1, -1, string.Empty, ProgressStatus.Success, null });
+        }
         void bw_DoWorkClientData(object sender, DoWorkEventArgs e)
         {
             Exception except = null;
