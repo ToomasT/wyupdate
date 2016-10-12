@@ -22,26 +22,26 @@ namespace wyUpdate.Common
 
     public enum ClientFileType { PreRC2, RC2, Final }
 
-    public class ClientFile
+    public class ClientFile:ClientFileBase 
     {
 #if CLIENT_READER
         public List<string> Languages = new List<string>();
         public bool ContainsUninstallFile;
 #else
-        public Hashtable Languages = new Hashtable();
+//        public Hashtable Languages = new Hashtable();
 #endif
 
-        public string InstalledVersion;
+//        public string InstalledVersion;
 
-        public UpdateOn CurrentlyUpdating = UpdateOn.DownloadingUpdate;
+//        public UpdateOn CurrentlyUpdating = UpdateOn.DownloadingUpdate;
 
-        public List<string> ServerFileSites = new List<string>(1);
-        public List<string> ClientServerSites = new List<string>(1);
-        public string CompanyName;
-        public string ProductName;
+//        public List<string> ServerFileSites = new List<string>(1);
+//        public List<string> ClientServerSites = new List<string>(1);
+//        public string CompanyName;
+//        public string ProductName;
 
         string m_GUID;
-        public string GUID
+        public override string GUID
         {
             get
             {
@@ -80,29 +80,29 @@ namespace wyUpdate.Common
             }
         }
 
-        public ImageAlign HeaderImageAlign = ImageAlign.Left;
-        public string HeaderTextColorName;
-        public int HeaderTextIndent = -1;
-        public bool HideHeaderDivider;
-        public Image TopImage;
-        public Image SideImage;
+//        public ImageAlign HeaderImageAlign = ImageAlign.Left;
+//        public string HeaderTextColorName;
+//        public int HeaderTextIndent = -1;
+//        public bool HideHeaderDivider;
+//        public Image TopImage;
+//        public Image SideImage;
 
-        public string TopImageFilename;
-        public string SideImageFilename;
+//        public string TopImageFilename;
+//        public string SideImageFilename;
 
-        public bool CloseOnSuccess;
+//        public bool CloseOnSuccess;
 
-        public string CustomWyUpdateTitle;
+//        public string CustomWyUpdateTitle;
 
-        public string PublicSignKey;
+//        public string PublicSignKey;
 
-        public string UpdatePassword;
+//        public string UpdatePassword;
 
 #if CLIENT
 
 #if !CLIENT_READER
         //Open Pre-RC2  client files
-        public void OpenObsoleteClientFile(string fileName)
+        public override void OpenObsoleteClientFile(string fileName)
         {
             FileStream fs = null;
 
@@ -304,7 +304,7 @@ namespace wyUpdate.Common
             ms.Close();
         }
 
-        public void LoadClientData(string filename)
+        public override void LoadClientData(string filename)
         {
             try
             {
@@ -358,7 +358,7 @@ namespace wyUpdate.Common
             }
         }
 #else
-        public void OpenClientFile(string m_Filename, ClientLanguage lang, string forcedCulture, string updatePathVar, string customUrlArgs)
+        public override void OpenClientFile(string m_Filename, ClientLanguage lang, string forcedCulture, string updatePathVar, string customUrlArgs)
         {
             using (ZipFile zip = ZipFile.Read(m_Filename))
             {
@@ -449,7 +449,7 @@ namespace wyUpdate.Common
 #endif
 
 #if !CLIENT_READER
-        public void SaveClientFile(List<UpdateFile> files, string outputFilename)
+        public override void SaveClientFile(List<UpdateFile> files, string outputFilename)
         {
             try
             {

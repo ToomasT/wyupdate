@@ -16,7 +16,7 @@ namespace wyUpdate
 
         public bool IsAdmin;
 
-        public readonly ClientFile update = new ClientFile();
+        public ClientFileBase update = new ClientFile();
         string PasswordUpdateCmd;
         ServerFile ServerFile;
         VersionChoice updateFrom;
@@ -565,6 +565,21 @@ namespace wyUpdate
                     WindowState = FormWindowState.Minimized;
                     ShowInTaskbar = false;
                 }
+
+                if (commands["guid"] != null)
+                {
+
+                    var companyName = commands["companyName"];
+                    var productName = commands["productName"];
+                    var guid = commands["guid"];
+                    var installedVersion = commands["installedVersion"];
+                    var serverSite = commands["serverSite"];
+
+                    update = new MemoryClientFile(companyName,productName,guid,installedVersion,serverSite);                    
+
+                    
+                }
+
             }
         }
 

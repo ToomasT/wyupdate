@@ -130,6 +130,8 @@
     <Compile Include="InstallUpdate\InstallUpdate.Registry.cs" />
     <Compile Include="InstallUpdate\InstallUpdate.SelfUpdate.cs" />
     <Compile Include="InstallUpdate\RollbackUpdate.cs" />
+    <Compile Include="MemoryClientFile.cs" />
+    <Compile Include="ClientFileBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadWriteFiles.Client.cs" />

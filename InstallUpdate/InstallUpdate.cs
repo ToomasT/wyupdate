@@ -43,7 +43,7 @@ namespace wyUpdate
 
         public ClientFileType ClientFileType;
 
-        public ClientFile ClientFile;
+        public ClientFileBase ClientFile;
 
         public bool SkipProgressReporting;
 
