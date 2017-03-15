@@ -29,7 +29,7 @@
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin4\Release\</OutputPath>
-    <DefineConstants>TRACE;CLIENT NET4</DefineConstants>
+    <DefineConstants>TRACE;CLIENT NET4 AESCRYPTO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientFileBase.cs" />
     <Compile Include="ClientLanguage.cs" />
     <Compile Include="Controls\AnimationControl.cs">
       <SubType>Component</SubType>
@@ -120,6 +121,7 @@
     <Compile Include="InstallUpdate\InstallUpdate.Processes.cs" />
     <Compile Include="InstallUpdate\InstallUpdate.Registry.cs" />
     <Compile Include="InstallUpdate\InstallUpdate.SelfUpdate.cs" />
+    <Compile Include="MemoryClientFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmFilesInUse.resx">
